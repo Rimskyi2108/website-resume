@@ -1,0 +1,29 @@
+// 1. Цвета
+$bg-primary: #0B0D17;
+$bg-card: rgba(255, 255, 255, 0.04);
+$border-glass: rgba(255, 255, 255, 0.08);
+$shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4);
+$accent: #00C9A7;
+$accent-secondary: #4F46E5;
+$text-primary: #F8FAFC;
+$text-muted: #94A3B8;
+$text-dark: #0B0D17;
+
+// 2. Шрифты
+$font-family: 'Montserrat Alternates', sans-serif;
+
+// 3. Размеры и отступы
+$radius: clamp(16px, 2vw, 24px);
+$container-padding: clamp(20px, 4vw, 60px);
+$section-padding: clamp(40px, 8vw, 120px) 0;
+$gap: clamp(16px, 2vw, 32px);
+
+// 4. Шрифты (clamp)
+$font-size-h1: clamp(40px, 6vw, 80px);
+$font-size-h2: clamp(32px, 4vw, 56px);
+$font-size-h3: clamp(18px, 2vw, 28px);
+$font-size-body: clamp(14px, 1.2vw, 20px);
+$font-size-small: clamp(12px, 1vw, 16px);
+
+// 5. Анимации
+$transition: 0.3s ease;

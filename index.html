@@ -1,11 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Резюме</title>
-</head>
-<body>
-    <h1>Мой сайт-визитка</h1>
-</body>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <a href="#" class="header__logo">Rimskyi</a>
+          <nav class="header__nav">
+            <a href="#about">Обо мне</a>
+            <a href="#tech">Технологии</a>
+            <a href="#tools">Инструменты</a>
+            <a href="#projects">Проекты</a>
+            <a href="#experience">Опыт</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+          <button class="header__burger" id="burgerBtn" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- ===== ДАЛЬШЕ БУДУТ СЕКЦИИ ===== -->
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero__inner">
+            <!-- ЛЕВАЯ КОЛОНКА -->
+            <div class="hero__left">
+              <div class="hero__avatar">
+                <span>👤</span>
+              </div>
+              <p class="hero__name">Николаенко Алексей</p>
+              <p class="hero__subtitle">
+                Frontend-разработчик · Создаю сайты с душой
+              </p>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА -->
+            <div class="hero__right">
+              <h1 class="hero__slogan">
+                Создаю сайты,<br />
+                которые выглядят <span class="hero__slogan--accent">дорого</span
+                ><br />
+                и работают быстро.
+              </h1>
+              <a href="#contacts" class="btn btn--primary"
+                >Связаться <span class="frost-cracks"></span>
+                <span class="frost-sparks"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Обо мне -->
+      <section id="about" class="section about">
+        <div class="container">
+          <div class="glass-card about__card">
+            <h2 class="about__title">Обо мне</h2>
+            <p class="about__text">
+              Мне 20 лет. Я начинающий фронтенд-разработчик.<br/>
+              Учусь создавать сайты, на которых удобно находиться<br/>
+              и куда приятно возвращаться.<br/>
+              Стремлюсь к идеальному коду, чистому дизайну<br/>
+              и уверенному развитию в IT.<br/>
+              Моя цель — делать продукты, которыми можно гордиться,<br/>
+              а в перспективе — выйти на финансовую свободу<br/>
+              и исполнить свою мечту.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Технологии -->
+      <!-- Проекты -->
+      <!-- Опыт -->
+      <!-- Контакты -->
+    </main>
+
+    <!-- ===== ФУТЕР ===== -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__tagline">Верстаю. Создаю. Оптимизирую.</p>
+        <p>© 2026 Rimskyi</p>
+      </div>
+    </footer>
+
+    <!-- Бургер (будет позже) -->
+  </body>
 </html>
