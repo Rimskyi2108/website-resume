@@ -25,15 +25,28 @@
             <a href="#experience">Опыт</a>
             <a href="#contacts">Контакты</a>
           </nav>
+          <!-- КНОПКА БУРГЕРА -->
           <button class="header__burger" id="burgerBtn" aria-label="Меню">
             <span></span>
             <span></span>
             <span></span>
           </button>
+          <!-- МОБИЛЬНОЕ МЕНЮ -->
+          <nav class="header__mobile-nav" id="mobileNav">
+            <ul class="header__mobile-list">
+              <li><a href="#about">Обо мне</a></li>
+              <li><a href="#tech">Технологии</a></li>
+              <li><a href="#tools">Инструменты</a></li>
+              <li><a href="#projects">Проекты</a></li>
+              <li><a href="#experience">Опыт</a></li>
+              <li><a href="#contacts">Контакты</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
     </header>
-    <!-- ===== ДАЛЬШЕ БУДУТ СЕКЦИИ ===== -->
+    <!-- ОВЕРЛЕЙ -->
+    <div class="header__overlay" id="overlay"></div>
     <main>
       <!-- Hero -->
       <section class="hero">
@@ -58,8 +71,7 @@
                 ><br />
                 и работают быстро.
               </h1>
-              <a href="#contacts" class="btn btn--primary"
-                >Связаться <span class="frost-cracks"></span>
+              <a href="#contacts" class="btn btn--primary frost-btn">Связаться <span class="frost-cracks"></span>
                 <span class="frost-sparks"></span>
               </a>
             </div>
@@ -72,32 +84,274 @@
           <div class="glass-card about__card">
             <h2 class="about__title">Обо мне</h2>
             <p class="about__text">
-              Мне 20 лет. Я начинающий фронтенд-разработчик.<br/>
-              Учусь создавать сайты, на которых удобно находиться<br/>
-              и куда приятно возвращаться.<br/>
-              Стремлюсь к идеальному коду, чистому дизайну<br/>
-              и уверенному развитию в IT.<br/>
-              Моя цель — делать продукты, которыми можно гордиться,<br/>
-              а в перспективе — выйти на финансовую свободу<br/>
+              Мне 20 лет. Я начинающий фронтенд-разработчик.<br />
+              Учусь создавать сайты, на которых удобно находиться<br />
+              и куда приятно возвращаться.<br />
+              Стремлюсь к идеальному коду, чистому дизайну<br />
+              и уверенному развитию в IT.<br />
+              Моя цель — делать продукты, которыми можно гордиться,<br />
+              а в перспективе — выйти на финансовую свободу<br />
               и исполнить свою мечту.
             </p>
           </div>
         </div>
       </section>
       <!-- Технологии -->
+      <section id="skills" class="section skills">
+        <div class="container">
+          <!-- РЯД 1: Инструменты + Технологии -->
+          <div class="skills__grid">
+            <!-- Блок: Инструменты -->
+            <div class="glass-card skills__card">
+              <h2 class="skills__title">Инструменты</h2>
+              <ul class="skills__list">
+                <li>🎨 Figma / Pixso (работа с готовыми дизайнами)</li>
+                <li>🧩 Tilda (Zero Block)</li>
+                <li>⚡ VS Code</li>
+                <li>🐙 GitHub (хранение кода)</li>
+                <li>🧠 ChatGPT / Midjourney (ИИ-помощник)</li>
+              </ul>
+            </div>
+            <!-- Блок: Технологии -->
+            <div class="glass-card skills__card">
+              <h2 class="skills__title">Технологии</h2>
+              <ul class="skills__list">
+                <li>📄 HTML5</li>
+                <li>🎨 CSS3 / SCSS</li>
+                <li>⚙️ JavaScript (базовый)</li>
+                <li>📐 Grid / Flexbox</li>
+                <li>🖥️ Git (контроль версий)</li>
+              </ul>
+            </div>
+          </div>
+          <!-- РЯД 2: Текст про ИИ -->
+          <div class="glass-card skills__ai">
+            <p class="skills__ai-text">
+              «В 2026 году ИИ — это не тренд, а инструмент. Я использую
+              нейросети для ускорения работы: генерация кода, поиск решений,
+              оптимизация дизайна и повышение продуктивности. Это позволяет мне
+              сосредоточиться на главном — качестве и деталях.»
+            </p>
+          </div>
+        </div>
+      </section>
       <!-- Проекты -->
+      <section id="projects" class="section projects">
+        <div class="container">
+          <h2 class="projects__title">Проекты</h2>
+          <div class="projects__grid">
+            <!-- Карточка 1: Magazin -->
+            <div class="glass-card projects__card">
+              <h3 class="projects__card-title">Интернет-магазин</h3>
+              <p class="projects__card-desc">
+                Интернет-магазин мебели. Адаптивная вёрстка, каталог, фильтры,
+                корзина.
+              </p>
+              <div class="projects__card-tech">
+                <span>HTML</span>
+                <span>CSS/SCSS</span>
+                <span>JS</span>
+              </div>
+              <div class="projects__card-links">
+                <a
+                  href="https://rimskyi2108.github.io/Magazin/"
+                  target="_blank"
+                  class="projects__btn"
+                  >Демо</a
+                >
+                <a
+                  href="https://github.com/Rimskyi2108/Magazin"
+                  target="_blank"
+                  class="projects__btn"
+                  >Код</a
+                >
+              </div>
+            </div>
+            <!-- Карточка 2: Mini-game -->
+            <div class="glass-card projects__card">
+              <h3 class="projects__card-title">Мини-игры</h3>
+              <p class="projects__card-desc">
+                Сборник мини-игр на чистом JavaScript. Адаптив, анимации,
+                логика, события.
+              </p>
+              <div class="projects__card-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JS</span>
+              </div>
+              <div class="projects__card-links">
+                <a
+                  href="https://rimskyi2108.github.io/mini-game/"
+                  target="_blank"
+                  class="projects__btn"
+                  >Демо</a
+                >
+                <a
+                  href="https://github.com/Rimskyi2108/mini-game"
+                  target="_blank"
+                  class="projects__btn"
+                  >Код</a
+                >
+              </div>
+            </div>
+            <!-- Карточка 3: Зернышко -->
+            <div class="glass-card projects__card">
+              <h3 class="projects__card-title">Кофейня-Зёрнышко</h3>
+              <p class="projects__card-desc">
+                Сайт-визитка кофейни. Бургер-меню, табы, карта, адаптив.
+              </p>
+              <div class="projects__card-tech">
+                <span>HTML</span>
+                <span>CSS/SCSS</span>
+                <span>JS</span>
+              </div>
+              <div class="projects__card-links">
+                <a
+                  href="https://rimskyi2108.github.io/zernyshko/"
+                  target="_blank"
+                  class="projects__btn"
+                  >Демо</a
+                >
+                <a
+                  href="https://github.com/Rimskyi2108/zernyshko"
+                  target="_blank"
+                  class="projects__btn"
+                  >Код</a
+                >
+              </div>
+            </div>
+            <!-- Карточка 4: СушиТуса (Tilda) -->
+            <div class="glass-card projects__card">
+              <h3 class="projects__card-title">Суши-Туса</h3>
+              <p class="projects__card-desc">
+                Сайт-визитка на Tilda. Корзина, попапы, слайдеры, табы, CRM.
+              </p>
+              <div class="projects__card-tech">
+                <span>Tilda</span>
+                <span>Zero Block</span>
+                <span>JS</span>
+              </div>
+              <div class="projects__card-links">
+                <a
+                  href="https://sushi-tusa65.tilda.ws/"
+                  target="_blank"
+                  class="projects__btn"
+                  >Демо</a
+                >
+                <a
+                  href="https://github.com/Rimskyi2108/tilda-SushiTusa"
+                  target="_blank"
+                  class="projects__btn"
+                  >Код</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Опыт -->
       <!-- Контакты -->
+      <section id="contacts" class="section contact">
+        <div class="container">
+          <h2 class="contact__title">Контакты</h2>
+          <div class="contact__grid">
+            <!-- Блок: Контакты (слева, широкий) -->
+            <div class="glass-card contact__card contact__card--wide">
+              <h3 class="contact__subtitle">Связаться</h3>
+              <div class="contact__links">
+                <a
+                  href="https://t.me/Rimskyi_2108"
+                  target="_blank"
+                  class="contact__link"
+                  >📱 Telegram
+                  <span class="contact__hint">(требуется VPN)</span></a
+                >
+                <a
+                  href="https://max.ru/u/f9LHodD0cOJW46ZvGQvfLgfYYYybGsBXiNPu7EQrjgTOokOQ_u2jSyqydM4"
+                  target="_blank"
+                  class="contact__link"
+                  >💬 MAX</a
+                >
+              </div>
+              <a href="#" class="btn btn--primary contact__btn"
+                >Написать в Telegram</a
+              >
+            </div>
+            <!-- Блок: Обучение (справа, узкий) -->
+            <div class="glass-card contact__card">
+              <h3 class="contact__subtitle">Опыт</h3>
+              <p class="contact__text">
+                Прохожу обучение на курсе Frontend-разработчик. Постоянно
+                практикуюсь, работаю над реальными макетами и развиваю навыки
+                фронтенд-разработки.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-
     <!-- ===== ФУТЕР ===== -->
     <footer class="footer">
       <div class="container">
-        <p class="footer__tagline">Верстаю. Создаю. Оптимизирую.</p>
-        <p>© 2026 Rimskyi</p>
+        <div class="footer__inner">
+          <!-- ЛОГОТИП (слева) -->
+          <a href="#" class="footer__logo">Rimskyi</a>
+
+          <!-- ЦЕНТР (слоган + соцсети) -->
+          <div class="footer__center">
+            <p class="footer__tagline">Верстаю. Создаю. Оптимизирую.</p>
+            <div class="footer__socials">
+              <a
+                href="https://t.me/Rimskyi_2108"
+                target="_blank"
+                class="footer__social"
+                aria-label="Telegram"
+              >
+                <img src="images/tg.svg" alt="Telegram" />
+              </a>
+              <a
+                href="https://max.ru/u/..."
+                target="_blank"
+                class="footer__social"
+                aria-label="MAX"
+              >
+                <img src="images/max.svg" alt="MAX" />
+              </a>
+            </div>
+          </div>
+
+          <!-- КОПИРАЙТ (справа) -->
+          <p class="footer__copy">© 2026 Rimskyi</p>
+        </div>
       </div>
     </footer>
+    <script>
+      // ============================================
+      //  БУРГЕР-МЕНЮ
+      // ============================================
+      document.addEventListener("DOMContentLoaded", function () {
+        const burger = document.getElementById("burgerBtn");
+        const mobileNav = document.getElementById("mobileNav");
+        const overlay = document.getElementById("overlay");
 
-    <!-- Бургер (будет позже) -->
+        function toggleMenu() {
+          burger.classList.toggle("active");
+          mobileNav.classList.toggle("active");
+          overlay.classList.toggle("active");
+          // document.body.classList.toggle('no-scroll');
+        }
+
+        if (burger && mobileNav && overlay) {
+          burger.addEventListener("click", toggleMenu);
+          overlay.addEventListener("click", toggleMenu);
+
+          document
+            .querySelectorAll(".header__mobile-list a")
+            .forEach((link) => {
+              link.addEventListener("click", toggleMenu);
+            });
+        }
+      });
+    </script>
   </body>
 </html>

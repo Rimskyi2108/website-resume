@@ -6,16 +6,25 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Montserrat Alternates", sans-serif;
   background: $bg-primary;
   color: $text-primary;
 }
 
+// body.no-scroll {
+//   overflow: hidden;
+// }
+
 .container {
   max-width: 100%;
   padding: 0 clamp(20px, 4vw, 60px);
-  margin: 0;
+  margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
 }
@@ -69,47 +78,21 @@ body {
     }
   }
 
-  &__burger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+  // ============================================
+//  БУРГЕР-МЕНЮ (ДЕСКТОП — СКРЫТО)
+// ============================================
 
-    span {
-      display: block;
-      width: 28px;
-      height: 2px;
-      background: $text-primary;
-      border-radius: 2px;
-      transition: all $transition;
-    }
+&__burger {
+  display: none; /* ← скрыт на десктопе */
+}
 
-    &.active {
-      span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      span:nth-child(2) {
-        opacity: 0;
-      }
-      span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
-    }
-  }
+&__overlay {
+  display: none; /* ← скрыт на десктопе */
+}
 
-  // ===== АДАПТИВ (ПЛАНШЕТ / МОБИЛКА) =====
-  @media (max-width: 768px) {
-    &__nav {
-      display: none;
-    }
-
-    &__burger {
-      display: flex;
-    }
-  }
+&__mobile-nav {
+  display: none; /* ← скрыт на десктопе */
+}
 }
 
 // ============================================
@@ -184,115 +167,183 @@ body {
     font-weight: 700;
     line-height: 1.2;
     color: $text-primary;
-    margin: 0 0 clamp(24px, 3vw, 40px) 0;
+    margin: 0 0 clamp(24px, 3vw, 45px) 0;
 
     &--accent {
       color: $accent;
     }
   }
 
-// ============================================
-//  КНОПКА FROST — МЯТНАЯ → ЯРКИЙ ЛЁД
-// ============================================
-.btn {
-  display: inline-block;
-  padding: clamp(12px, 1.5vw, 20px) clamp(28px, 3vw, 48px);
-  font-size: $font-size-body;
-  font-weight: 600;
-  font-family: $font-family;
-  border: none;
-  border-radius: $radius;
-  text-decoration: none;
-  cursor: pointer;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  transition: all 1.5s ease;
+  // ============================================
+  //  КНОПКА FROST — МЯТНАЯ → ЯРКИЙ ЛЁД
+  // ============================================
+  .btn {
+    display: inline-block;
+    padding: clamp(12px, 1.5vw, 20px) clamp(28px, 3vw, 48px);
+    font-size: $font-size-body;
+    font-weight: 600;
+    font-family: $font-family;
+    border: none;
+    border-radius: $radius;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 1.5s ease;
 
-  &--primary {
-    background: $accent; /* ← мятный */
-    color: #0a1a1a;
-    box-shadow: 0 8px 30px rgba($accent, 0.3);
-    z-index: 1;
+    &--primary {
+      background: $accent; /* ← мятный */
+      color: #0a1a1a;
+      box-shadow: 0 8px 30px rgba($accent, 0.3);
+      z-index: 1;
 
-    // Ледяной фон (яркий голубой)
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #4a9ab5, #6ab8d0);
-      opacity: 0;
-      transition: opacity 1.8s ease;
-      z-index: -1;
-      border-radius: $radius;
-      pointer-events: none;
-    }
-
-    // Трещины (хаотичные, разные)
-    &::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 2s ease;
-  pointer-events: none;
-  z-index: 2;
-  border-radius: $radius;
-  background: 
-    /* от верхнего левого края */
-    linear-gradient(20deg, transparent 48%, rgba(255,255,255,0.3) 49%, transparent 50%),
-    /* от верхнего правого */
-    linear-gradient(160deg, transparent 47%, rgba(255,255,255,0.25) 48.5%, transparent 50%),
-    /* от нижнего левого */
-    linear-gradient(240deg, transparent 49%, rgba(255,255,255,0.2) 50%, transparent 51%),
-    /* от нижнего правого */
-    linear-gradient(300deg, transparent 48%, rgba(255,255,255,0.25) 49.5%, transparent 51%),
-    /* от левого края вниз */
-    linear-gradient(80deg, transparent 47%, rgba(255,255,255,0.2) 48%, transparent 50%),
-    /* от правого края вверх */
-    linear-gradient(350deg, transparent 49%, rgba(255,255,255,0.2) 50%, transparent 51%),
-    /* мелкие разбросанные */
-    linear-gradient(50deg, transparent 49.5%, rgba(255,255,255,0.1) 50%, transparent 50.5%),
-    linear-gradient(120deg, transparent 49.5%, rgba(255,255,255,0.1) 50%, transparent 50.5%),
-    linear-gradient(190deg, transparent 49.5%, rgba(255,255,255,0.1) 50%, transparent 50.5%),
-    linear-gradient(260deg, transparent 49.5%, rgba(255,255,255,0.1) 50%, transparent 50.5%);
-  background-size: 
-    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
-    30% 30%, 40% 40%, 35% 35%, 45% 45%;
-  background-position: 
-    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
-    10% 15%, 75% 85%, 40% 70%, 85% 25%;
-  background-repeat: no-repeat;
-  mix-blend-mode: overlay;
-}
-    &:hover {
-      background: transparent;
-      color: #ffffff;
-      box-shadow: 0 0 60px rgba(70, 180, 210, 0.4), inset 0 0 30px rgba(150, 220, 255, 0.1);
-      transform: translateY(-2px) scale(1.02);
-      border: 1px solid rgba(150, 220, 255, 0.2);
-
+      // Ледяной фон (яркий голубой)
       &::before {
-        opacity: 1;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #4a9ab5, #6ab8d0);
+        opacity: 0;
+        transition: opacity 1.8s ease;
+        z-index: -1;
+        border-radius: $radius;
+        pointer-events: none;
       }
 
+      // Трещины (хаотичные, разные)
       &::after {
-        opacity: 1;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 2s ease;
+        pointer-events: none;
+        z-index: 2;
+        border-radius: $radius;
+        background: 
+    /* от верхнего левого края */
+          linear-gradient(
+            20deg,
+            transparent 48%,
+            rgba(255, 255, 255, 0.3) 49%,
+            transparent 50%
+          ),
+          /* от верхнего правого */
+          linear-gradient(
+              160deg,
+              transparent 47%,
+              rgba(255, 255, 255, 0.25) 48.5%,
+              transparent 50%
+            ),
+          /* от нижнего левого */
+          linear-gradient(
+              240deg,
+              transparent 49%,
+              rgba(255, 255, 255, 0.2) 50%,
+              transparent 51%
+            ),
+          /* от нижнего правого */
+          linear-gradient(
+              300deg,
+              transparent 48%,
+              rgba(255, 255, 255, 0.25) 49.5%,
+              transparent 51%
+            ),
+          /* от левого края вниз */
+          linear-gradient(
+              80deg,
+              transparent 47%,
+              rgba(255, 255, 255, 0.2) 48%,
+              transparent 50%
+            ),
+          /* от правого края вверх */
+          linear-gradient(
+              350deg,
+              transparent 49%,
+              rgba(255, 255, 255, 0.2) 50%,
+              transparent 51%
+            ),
+          /* мелкие разбросанные */
+          linear-gradient(
+              50deg,
+              transparent 49.5%,
+              rgba(255, 255, 255, 0.1) 50%,
+              transparent 50.5%
+            ),
+          linear-gradient(
+            120deg,
+            transparent 49.5%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 50.5%
+          ),
+          linear-gradient(
+            190deg,
+            transparent 49.5%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 50.5%
+          ),
+          linear-gradient(
+            260deg,
+            transparent 49.5%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 50.5%
+          );
+        background-size:
+          100% 100%,
+          100% 100%,
+          100% 100%,
+          100% 100%,
+          100% 100%,
+          100% 100%,
+          30% 30%,
+          40% 40%,
+          35% 35%,
+          45% 45%;
+        background-position:
+          0% 0%,
+          0% 0%,
+          0% 0%,
+          0% 0%,
+          0% 0%,
+          0% 0%,
+          10% 15%,
+          75% 85%,
+          40% 70%,
+          85% 25%;
+        background-repeat: no-repeat;
+        mix-blend-mode: overlay;
       }
-    }
+      &:hover {
+        background: transparent;
+        color: #ffffff;
+        box-shadow:
+          0 0 60px rgba(70, 180, 210, 0.4),
+          inset 0 0 30px rgba(150, 220, 255, 0.1);
+        transform: translateY(-2px) scale(1.02);
+        border: 1px solid rgba(150, 220, 255, 0.2);
 
-    &:active {
-      transform: scale(0.97);
-      transition: 0.1s ease;
+        &::before {
+          opacity: 1;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &:active {
+        transform: scale(0.97);
+        transition: 0.1s ease;
+      }
     }
   }
-}
 }
 
 // ============================================
@@ -311,7 +362,9 @@ body {
     text-align: center;
     border: 1px solid rgba($accent-secondary, 0.2);
     box-shadow: 0 8px 40px rgba($accent-secondary, 0.15);
-    transition: box-shadow 0.6s ease, border-color 0.6s ease;
+    transition:
+      box-shadow 0.6s ease,
+      border-color 0.6s ease;
     background: $bg-card;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -340,8 +393,497 @@ body {
   }
 
   &__card:hover {
-    box-shadow: 0 0 60px rgba(150, 220, 255, 0.2),
-                0 0 120px rgba(150, 220, 255, 0.05);
+    box-shadow:
+      0 0 60px rgba(150, 220, 255, 0.2),
+      0 0 120px rgba(150, 220, 255, 0.05);
     border-color: rgba(150, 220, 255, 0.15);
   }
 }
+
+// ============================================
+//  НАВЫКИ, ИНСТРУМЕНТЫ И ИИ
+// ============================================
+.skills {
+  padding: clamp(30px, 4vw, 60px) 0;
+
+  &__grid {
+    display: flex;
+    gap: 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+    // margin-bottom: clamp(30px, 4vw, 50px);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__card {
+    flex: 0 1 625px;
+    max-width: 625px;
+    min-width: 280px;
+    padding: clamp(24px, 3vw, 40px);
+    text-align: left;
+    border: 1px solid rgba($accent-secondary, 0.2);
+    box-shadow: 0 8px 40px rgba($accent-secondary, 0.15);
+    transition:
+      box-shadow 0.6s ease,
+      border-color 0.6s ease;
+    background: $bg-card;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: $radius;
+    min-width: 260px;
+
+    &:hover {
+      box-shadow:
+        0 0 60px rgba(150, 220, 255, 0.2),
+        0 0 120px rgba(150, 220, 255, 0.05);
+      border-color: rgba(150, 220, 255, 0.15);
+    }
+  }
+
+  &__title {
+    font-size: $font-size-h2;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 clamp(16px, 1.5vw, 24px) 0;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1vw, 16px);
+
+    li {
+      font-size: $font-size-body;
+      color: $text-muted;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  // Блок с ИИ текстом
+  &__ai {
+    max-width: 1300px;
+    margin: 30px auto 0;
+    padding: clamp(30px, 4vw, 50px);
+    text-align: center;
+    border: 1px solid rgba($accent-secondary, 0.2);
+    box-shadow: 0 8px 40px rgba($accent-secondary, 0.15);
+    transition:
+      box-shadow 0.6s ease,
+      border-color 0.6s ease;
+    background: $bg-card;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: $radius;
+
+    &:hover {
+      box-shadow:
+        0 0 60px rgba(150, 220, 255, 0.2),
+        0 0 120px rgba(150, 220, 255, 0.05);
+      border-color: rgba(150, 220, 255, 0.15);
+    }
+  }
+
+  &__ai-text {
+    font-size: clamp(16px, 1.3vw, 22px);
+    color: $text-muted;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+// ============================================
+//  ПРОЕКТЫ
+// ============================================
+.projects {
+  padding: clamp(30px, 4vw, 60px) 0;
+
+  &__title {
+    font-size: $font-size-h2;
+    font-weight: 700;
+    color: $text-primary;
+    text-align: center;
+    margin: 0 0 clamp(30px, 4vw, 50px) 0;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  &__card {
+    flex: 0 1 625px;
+    max-width: 625px;
+    min-width: 280px;
+    padding: clamp(24px, 3vw, 36px);
+    border: 1px solid rgba($accent-secondary, 0.2);
+    box-shadow: 0 8px 40px rgba($accent-secondary, 0.15);
+    transition:
+      box-shadow 0.6s ease,
+      border-color 0.6s ease;
+    background: $bg-card;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: $radius;
+
+    &:hover {
+      box-shadow:
+        0 0 60px rgba(150, 220, 255, 0.2),
+        0 0 120px rgba(150, 220, 255, 0.05);
+      border-color: rgba(150, 220, 255, 0.15);
+    }
+  }
+
+  &__card-title {
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 10px 0;
+  }
+
+  &__card-desc {
+    font-size: $font-size-body;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+  }
+
+  &__card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    span {
+      font-size: 12px;
+      font-weight: 500;
+      color: $text-muted;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  &__card-links {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 6px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: $font-family;
+    color: $text-dark;
+    background: $accent;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba($accent, 0.15);
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba($accent, 0.3);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+// ============================================
+//  КОНТАКТЫ + ОПЫТ
+// ============================================
+.contact {
+  padding: clamp(30px, 4vw, 60px) 0;
+
+  &__title {
+    font-size: $font-size-h2;
+    font-weight: 700;
+    color: $text-primary;
+    text-align: center;
+    margin: 0 0 clamp(30px, 4vw, 50px) 0;
+  }
+
+  &__grid {
+    display: flex;
+    gap: 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__card {
+    flex: 0 1 625px;
+    max-width: 625px;
+    min-width: 280px;
+    padding: clamp(24px, 3vw, 36px);
+    border: 1px solid rgba($accent-secondary, 0.2);
+    box-shadow: 0 8px 40px rgba($accent-secondary, 0.15);
+    transition:
+      box-shadow 0.6s ease,
+      border-color 0.6s ease;
+    background: $bg-card;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &--wide {
+      flex: 0 1 625px;
+      max-width: 625px;
+    }
+
+    &:hover {
+      box-shadow:
+        0 0 60px rgba(150, 220, 255, 0.2),
+        0 0 120px rgba(150, 220, 255, 0.05);
+      border-color: rgba(150, 220, 255, 0.15);
+    }
+  }
+
+  &__subtitle {
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 16px 0;
+  }
+
+  &__text {
+    font-size: $font-size-body;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 0 20px 0;
+  }
+
+  &__link {
+    display: inline-block;
+    width: auto;
+    font-size: $font-size-body;
+    color: $text-muted;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__hint {
+    font-size: 12px;
+    color: $text-muted;
+    margin-left: 4px;
+    opacity: 0.7;
+  }
+
+ &__btn {
+  display: inline-block;
+  align-self: flex-start;
+  background: $accent;
+  color: $text-dark;
+  box-shadow: 0 0 30px rgba($accent, 0.2);
+  padding: clamp(10px, 1.2vw, 16px) clamp(24px, 2.5vw, 40px);
+  border-radius: $radius;
+  font-weight: 600;
+  font-family: $font-family;
+  text-decoration: none;
+  transition: color 1s ease, transform 1s ease, box-shadow 1s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  // Псевдоэлемент для фона
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2a7a95, #6ab8d0);
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: -1;
+    border-radius: $radius;
+  }
+
+  &:hover {
+    color: $text-primary;
+    box-shadow: 0 0 50px rgba($accent, 0.15), inset 0 0 30px rgba($accent, 0.05);
+    transform: translateY(-2px);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: scale(0.97);
+    transition: 0.1s ease;
+  }
+}
+}
+
+// ============================================
+//  ФУТЕР
+// ============================================
+.footer {
+  padding: clamp(24px, 3vw, 48px) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: clamp(20px, 3vw, 60px);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &__logo {
+    font-size: $font-size-h3;
+    font-weight: 700;
+    color: $text-primary;
+    text-decoration: none;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  &__tagline {
+    font-size: 14px;
+    color: $text-muted;
+    opacity: 0.6;
+    margin: 0;
+    letter-spacing: 0.06em;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    img {
+      width: 18px;
+      height: 18px;
+      display: block;
+      filter: grayscale(1) brightness(0.6);
+      transition: filter 0.3s ease;
+    }
+
+    &:hover {
+      border-color: $accent;
+      transform: translateY(-2px);
+
+      img {
+        filter: grayscale(0) brightness(1);
+      }
+    }
+  }
+
+  &__copy {
+    font-size: 14px;
+    color: $text-muted;
+    opacity: 0.4;
+    margin: 0;
+  }
+}
+
+/* ============================================
+   ПЕРЕХОД 2: 1451–1920px (активное ужимание)
+   ============================================ */
+@media (min-width: 1451px) and (max-width: 1920px) {
+    .hero__avatar {
+    width: clamp(180px, 13vw, 240px);
+    height: clamp(180px, 13vw, 240px);
+    font-size: clamp(48px, 6vw, 72px);
+      margin-bottom: clamp(8px, 0.6vw, 12px);
+  }
+
+  .hero__name {
+    font-size: clamp(22px, 1.4vw, 28px);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(16px, 1vw, 18px);
+  }
+
+  .hero__left {
+    gap: clamp(6px, 0.8vw, 10px);
+  }
+
+  .hero__slogan {
+    font-size: clamp(42px, 4vw, 58px);
+    white-space: nowrap;
+  }
+
+  .hero__inner {
+    gap: clamp(16px, 1.8vw, 32px);
+  }
+
+  .frost-btn {
+    font-size: clamp(16px, 1.1vw, 18px);
+    padding: clamp(14px, 1.2vw, 18px) clamp(28px, 2.5vw, 40px);
+  }
+}
+
+
+
+
+
+
+
+
+
+@import 'tablet';
+@import 'mobile';
