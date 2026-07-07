@@ -19,11 +19,11 @@
           <a href="#" class="header__logo">Rimskyi</a>
           <nav class="header__nav">
             <a href="#about">Обо мне</a>
-            <a href="#tech">Технологии</a>
             <a href="#tools">Инструменты</a>
+            <a href="#tech">Технологии</a>
             <a href="#projects">Проекты</a>
-            <a href="#experience">Опыт</a>
             <a href="#contacts">Контакты</a>
+            <a href="#experience">Опыт</a>
           </nav>
           <!-- КНОПКА БУРГЕРА -->
           <button class="header__burger" id="burgerBtn" aria-label="Меню">
@@ -35,11 +35,11 @@
           <nav class="header__mobile-nav" id="mobileNav">
             <ul class="header__mobile-list">
               <li><a href="#about">Обо мне</a></li>
-              <li><a href="#tech">Технологии</a></li>
               <li><a href="#tools">Инструменты</a></li>
+              <li><a href="#tech">Технологии</a></li>
               <li><a href="#projects">Проекты</a></li>
-              <li><a href="#experience">Опыт</a></li>
               <li><a href="#contacts">Контакты</a></li>
+              <li><a href="#experience">Опыт</a></li>
             </ul>
           </nav>
         </div>
@@ -71,7 +71,8 @@
                 ><br />
                 и работают быстро.
               </h1>
-              <a href="#contacts" class="btn btn--primary frost-btn">Связаться <span class="frost-cracks"></span>
+              <a href="#contacts" class="btn btn--primary frost-btn"
+                >Связаться <span class="frost-cracks"></span>
                 <span class="frost-sparks"></span>
               </a>
             </div>
@@ -97,23 +98,23 @@
         </div>
       </section>
       <!-- Технологии -->
-      <section id="skills" class="section skills">
+      <section class="section skills">
         <div class="container">
           <!-- РЯД 1: Инструменты + Технологии -->
           <div class="skills__grid">
             <!-- Блок: Инструменты -->
-            <div class="glass-card skills__card">
+            <div id="tools" class="glass-card skills__card">
               <h2 class="skills__title">Инструменты</h2>
               <ul class="skills__list">
-                <li>🎨 Figma / Pixso (работа с готовыми дизайнами)</li>
+                <li>🎨 Figma / Pixso (макеты)</li>
                 <li>🧩 Tilda (Zero Block)</li>
                 <li>⚡ VS Code</li>
                 <li>🐙 GitHub (хранение кода)</li>
-                <li>🧠 ChatGPT / Midjourney (ИИ-помощник)</li>
+                <li>🧠 ChatGPT / Midjourney</li>
               </ul>
             </div>
             <!-- Блок: Технологии -->
-            <div class="glass-card skills__card">
+            <div id="tech" class="glass-card skills__card">
               <h2 class="skills__title">Технологии</h2>
               <ul class="skills__list">
                 <li>📄 HTML5</li>
@@ -249,13 +250,13 @@
           </div>
         </div>
       </section>
-      <!-- Опыт -->
       <!-- Контакты -->
-      <section id="contacts" class="section contact">
-        <div class="container">
+      <!-- Опыт -->
+      <section class="section contact">
+        <div id="contacts" class="container">
           <h2 class="contact__title">Контакты</h2>
           <div class="contact__grid">
-            <!-- Блок: Контакты (слева, широкий) -->
+            <!-- Блок: Контакты -->
             <div class="glass-card contact__card contact__card--wide">
               <h3 class="contact__subtitle">Связаться</h3>
               <div class="contact__links">
@@ -264,21 +265,19 @@
                   target="_blank"
                   class="contact__link"
                   >📱 Telegram
-                  <span class="contact__hint">(требуется VPN)</span></a
-                >
+                  <span class="contact__hint">(требуется VPN)</span></a>
                 <a
                   href="https://max.ru/u/f9LHodD0cOJW46ZvGQvfLgfYYYybGsBXiNPu7EQrjgTOokOQ_u2jSyqydM4"
                   target="_blank"
-                  class="contact__link"
-                  >💬 MAX</a
-                >
+                  class="contact__link">💬 MAX
+                </a>
               </div>
-              <a href="#" class="btn btn--primary contact__btn"
-                >Написать в Telegram</a
-              >
+              <a href="https://t.me/Rimskyi_2108" target="_blank" class="btn btn--primary contact__btn"
+                >Написать в Telegram
+              </a>
             </div>
-            <!-- Блок: Обучение (справа, узкий) -->
-            <div class="glass-card contact__card">
+            <!-- Блок: Опыт -->
+            <div id="experience" class="glass-card contact__card">
               <h3 class="contact__subtitle">Опыт</h3>
               <p class="contact__text">
                 Прохожу обучение на курсе Frontend-разработчик. Постоянно
@@ -296,7 +295,6 @@
         <div class="footer__inner">
           <!-- ЛОГОТИП (слева) -->
           <a href="#" class="footer__logo">Rimskyi</a>
-
           <!-- ЦЕНТР (слоган + соцсети) -->
           <div class="footer__center">
             <p class="footer__tagline">Верстаю. Создаю. Оптимизирую.</p>
@@ -305,21 +303,18 @@
                 href="https://t.me/Rimskyi_2108"
                 target="_blank"
                 class="footer__social"
-                aria-label="Telegram"
-              >
+                aria-label="Telegram">
                 <img src="images/tg.svg" alt="Telegram" />
               </a>
               <a
-                href="https://max.ru/u/..."
+                href="https://max.ru/u/f9LHodD0cOJW46ZvGQvfLgfYYYybGsBXiNPu7EQrjgTOokOQ_u2jSyqydM4"
                 target="_blank"
                 class="footer__social"
-                aria-label="MAX"
-              >
+                aria-label="MAX">
                 <img src="images/max.svg" alt="MAX" />
               </a>
             </div>
           </div>
-
           <!-- КОПИРАЙТ (справа) -->
           <p class="footer__copy">© 2026 Rimskyi</p>
         </div>
@@ -338,7 +333,6 @@
           burger.classList.toggle("active");
           mobileNav.classList.toggle("active");
           overlay.classList.toggle("active");
-          // document.body.classList.toggle('no-scroll');
         }
 
         if (burger && mobileNav && overlay) {
