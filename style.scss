@@ -7,15 +7,22 @@
 }
 
 html {
+  height: 100%; /* ← добавляем */
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh; /* ← добавляем */
   font-family: "Montserrat Alternates", sans-serif;
   background: $bg-primary;
   color: $text-primary;
-  overflow-x: hidden;
+}
+
+.wrapper {
+  // overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 .container {
@@ -30,9 +37,9 @@ body {
 //  HEADER
 // ============================================
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
   background: rgba(11, 13, 23, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -96,7 +103,7 @@ body {
 //  HERO
 // ============================================
 .hero {
-  padding: $font-size-h1 0;
+  padding: clamp(40px, 6vw, 80px) 0;
   display: flex;
   align-items: center;
   min-height: clamp(400px, 70vh, 700px);

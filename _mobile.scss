@@ -122,10 +122,6 @@
     display: none;
   }
 
-  body.no-scroll {
-    overflow: hidden;
-  }
-
   // ===== HERO =====
   .hero {
     padding: clamp(16px, 2.5vw, 32px) 0; /* ← увеличили отступ сверху/снизу */
@@ -187,7 +183,7 @@
 
   // ===== ОБО МНЕ =====
   .about {
-    padding: clamp(10px, 1.2vw, 18px) 0;
+    padding: clamp(16px, 2.5vw, 32px) 0;
     min-height: auto; /* ← по контенту */
   }
 
@@ -249,9 +245,8 @@
   }
 
   // ===== ПРОЕКТЫ =====
-  // ===== ПРОЕКТЫ =====
   .projects {
-    padding: clamp(8px, 1vw, 14px) 0;
+    padding: clamp(16px, 2.5vw, 32px) 0;
   }
 
   .projects__grid {
@@ -354,6 +349,43 @@
     padding: clamp(6px, 0.8vw, 10px) clamp(12px, 1.5vw, 16px);
     margin-top: clamp(4px, 0.4vw, 6px);
   }
+
+  // ===== ФУТЕР =====
+.footer {
+  padding: clamp(16px, 2.5vw, 28px) 0;
+  margin-top: clamp(12px, 1.5vw, 20px);
+}
+
+.footer__inner {
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 16px);
+  text-align: center;
+}
+
+.footer__tagline {
+  font-size: clamp(14px, 1.8vw, 18px);
+  opacity: 0.7;
+}
+
+.footer__socials {
+  gap: clamp(14px, 1.8vw, 20px);
+}
+
+.footer__social {
+  width: clamp(36px, 4.5vw, 42px);
+  height: clamp(36px, 4.5vw, 42px);
+}
+
+.footer__social img {
+  width: clamp(18px, 2.2vw, 22px);
+  height: clamp(18px, 2.2vw, 22px);
+}
+
+.footer__copy {
+  font-size: clamp(12px, 1.4vw, 14px);
+  opacity: 0.4;
+}
 }
 
 /* ============================================
