@@ -20,7 +20,7 @@ body {
 
 .container {
   max-width: 100%;
-  padding: 0 clamp(20px, 4vw, 60px);
+  padding: 0 $container-padding;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
@@ -96,7 +96,7 @@ body {
 //  HERO
 // ============================================
 .hero {
-  padding: clamp(40px, 6vw, 80px) 0;
+  padding: $font-size-h1 0;
   display: flex;
   align-items: center;
   min-height: clamp(400px, 70vh, 700px);
@@ -460,7 +460,7 @@ body {
       align-items: center;
       gap: 12px;
       padding: 6px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid $bg-card;
 
       &:last-child {
         border-bottom: none;
@@ -594,7 +594,7 @@ body {
     background: $accent;
     border-radius: 30px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all $transition;
     box-shadow: 0 0 20px rgba($accent, 0.15);
 
     &:hover {
@@ -690,7 +690,7 @@ body {
     font-size: $font-size-body;
     color: $text-muted;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color $transition;
 
     &:hover {
       color: $accent;
@@ -806,8 +806,8 @@ body {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
+    border: 1px solid $border-glass;
+    transition: all $transition;
     text-decoration: none;
 
     img {
@@ -815,7 +815,7 @@ body {
       height: 18px;
       display: block;
       filter: grayscale(1) brightness(0.6);
-      transition: filter 0.3s ease;
+      transition: filter $transition;
     }
 
     &:hover {
@@ -979,7 +979,7 @@ body {
   flex: 0 1 475px;
   max-width: 475px;
   padding: clamp(20px, 2.5vw, 32px);
-   padding-bottom: clamp(16px, 2vw, 24px);
+   padding-bottom: $radius;
 }
 
 .contact__card--wide {
@@ -1090,7 +1090,7 @@ body {
   .skills__card {
     flex: 0 1 356px;
     max-width: 356px;
-    padding: clamp(16px, 2vw, 24px);
+    padding: $radius;
   }
 
   .skills__list li {
@@ -1121,7 +1121,7 @@ body {
   .projects__card {
     flex: 0 1 356px;
     max-width: 356px;
-    padding: clamp(16px, 2vw, 24px);
+    padding: $radius;
   }
 
   .projects__card-title {
@@ -1150,7 +1150,7 @@ body {
   .contact__card {
     flex: 0 1 356px;
     max-width: 356px;
-    padding: clamp(16px, 2vw, 24px);
+    padding: $radius;
     padding-bottom: clamp(12px, 1.5vw, 18px);
   }
 
