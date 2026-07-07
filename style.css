@@ -385,6 +385,14 @@ body {
   color: #F8FAFC;
   margin: 0 0 10px 0;
 }
+.projects__card-link {
+  color: #F8FAFC; /* ← такой же цвет, как был у заголовка */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.projects__card-link:hover {
+  color: #00C9A7; /* ← мятный при наведении */
+}
 .projects__card-desc {
   font-size: clamp(14px, 1.2vw, 20px);
   color: #94A3B8;

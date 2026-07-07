@@ -562,6 +562,16 @@ body {
     margin: 0 0 10px 0;
   }
 
+  &__card-link {
+  color: $text-primary; /* ← такой же цвет, как был у заголовка */
+  text-decoration: none;
+  transition: color $transition;
+
+  &:hover {
+    color: $accent; /* ← мятный при наведении */
+  }
+}
+
   &__card-desc {
     font-size: $font-size-body;
     color: $text-muted;
